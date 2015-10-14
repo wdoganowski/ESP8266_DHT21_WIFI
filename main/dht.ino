@@ -57,7 +57,7 @@ void read_DHT(void) {
     readouttime = readouttime_c;
   }
 
-  #ifdef DEBUG_DHT
+  #ifdef DEBUG_DHT_TIME
   Serial.print("Readout time ");
   Serial.println(readouttime);
   #endif

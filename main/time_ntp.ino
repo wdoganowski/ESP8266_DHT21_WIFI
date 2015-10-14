@@ -9,7 +9,7 @@ time_t prevDisplay = 0; // when the digital clock was displayed
 
 void handle_Time()
 {  
-  #ifndef DEBUG_TIME_NTP
+  #ifdef DEBUG_TIME_NTP
   // Debug display
   if (timeStatus() != timeNotSet) {
     if (now() != prevDisplay) { //update the display only if time has changed
@@ -37,7 +37,7 @@ int set_date_time(String t) {
   Serial.print(" ");
   Serial.print(t.substring(0,4).toInt()); 
   Serial.println();
-#  endif  
+  #endif  
   setTime(t.substring(8,10).toInt(), // hour
           t.substring(10,12).toInt(), // min
           t.substring(12,14).toInt(), // sec
@@ -50,7 +50,7 @@ int set_date_time(String t) {
 /*
  * Debug functions
  */
-#ifndef DEBUG_TIME_NTP
+#ifdef DEBUG_TIME_NTP
 
 void digitalClockDisplay(){
   // digital clock display of the time
